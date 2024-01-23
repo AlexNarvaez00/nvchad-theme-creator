@@ -1,17 +1,23 @@
 import "./page.css";
 import { Label } from "@/components/ui/label";
 import { Input } from "@/components/ui/input";
+import Nvim from "@/components/Nvim";
 
 export default function Page() {
   return (
-    <section className={`w-full`}>
+    <section className={`w-full flex gap-2`}>
       {/* Container inputs color   */}
-      <div>
-        <form className={`grid gap-2`}>
+      <div className="py-8 px-4">
+        <form className={`grid gap-4`}>
           <div className={`grid w-full max-w-sm items-center gap-2`}>
             <Label htmlFor="input-comment">Commets</Label>
             <Input id="input-comment" name="comment" />
           </div>
+          <div className={`grid w-full max-w-sm items-center gap-2`}>
+            <Label htmlFor="input-operadores">Operadores</Label>
+            <Input id="input-operadores" name="Operadores" />
+          </div>
+
           <div className={`grid w-full max-w-sm items-center gap-2`}>
             <Label htmlFor="input-bg-nvtree">Backgound NvTree</Label>
             <Input id="input-bg-nvtree" name="bg-nvtree" />
@@ -66,9 +72,15 @@ export default function Page() {
             </Label>
             <Input id="input-bg-selection" name="bg-selection" />
           </div>
-
+          <div className={`grid w-full max-w-sm items-center gap-2`}>
+            <Label htmlFor="input-bg-select-submenu">
+              Color submenu
+            </Label>
+            <Input id="input-bg-select-submenu" name="bg-select-submenu" />
+          </div>
         </form>
       </div>
+      <Nvim /> 
     </section>
   );
 }
