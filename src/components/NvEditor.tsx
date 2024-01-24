@@ -1,29 +1,29 @@
 interface Props {
-  comments: string;
-  functions: string;
-  keywords: string;
-  variables: string;
+  foregroundComments: string;
+  foregroundFunctions: string;
+  foregroundKeywords: string;
+  foregroundVariables: string;
 }
 
 export default function NvEditor({
-  comments,
-  functions,
-  keywords,
-  variables,
+  foregroundComments,
+  foregroundFunctions,
+  foregroundKeywords,
+  foregroundVariables,
 }: Props) {
   return (
     <pre className={`pb-16 pl-4`}>
-      <code style={{ color: comments }}>
+      <code style={{ color: foregroundComments }}>
         {`/**
  *
  *
  */
 `}
       </code>
-      <code style={{ color: keywords }}>export default function</code>
-      <code style={{ color: functions }}> List</code>() <code>{`{\n`}</code>
-      <code style={{ color: keywords }}>const </code>
-      <code style={{ color: variables }}>{`name\n`}</code>
+      <code style={{ color: foregroundKeywords }}>export default function</code>
+      <code style={{ color: foregroundFunctions }}> List</code>() <code>{`{\n`}</code>
+      <code style={{ color: foregroundKeywords }}>const </code>
+      <code style={{ color: foregroundVariables }}>{`name\n`}</code>
       <code>{`\n`}return {`(\n`}</code>
       <code>{`);`}</code>
       <code>{`}`}</code>

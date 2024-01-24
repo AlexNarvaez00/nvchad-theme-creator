@@ -6,7 +6,7 @@ interface Props {
 }
 export default function NvTreeItem({ children, className, ...props }: Props) {
   return (
-    <li className={`px-3 ${className}`} {...props}>
+    <li className={`px-3 flex gap-2 ${className}`} {...props}>
       {children}
     </li>
   );

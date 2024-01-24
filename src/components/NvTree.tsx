@@ -1,30 +1,48 @@
 import NvTreeItem from "./NvTreeItem";
+import {
+  IconBrandReact,
+  IconCoffee,
+  IconFolderFilled,
+  IconRocket,
+} from "@tabler/icons-react";
 
 interface Props {
-  folders: string;
-  files: string;
-  backgroundNvTree: string;
+  foregroundFolders: string;
+  foregroundFiles: string;
+  background: string;
 }
 
-export default function NvTree({ folders, files, backgroundNvTree }: Props) {
+export default function NvTree({ foregroundFolders, foregroundFiles, background }: Props) {
   return (
     <>
       <div
         className="container-menu col-span-1 px-5"
-        style={{ background: backgroundNvTree }}
+        style={{ background: background }}
       >
         <ul>
           <NvTreeItem>
-            <span style={{ color: folders }}>src</span>
+            <span className={`flex gap-1 items-center`} style={{ color: foregroundFolders }}>
+              <IconFolderFilled size={"18px"} />
+              src
+            </span>
           </NvTreeItem>
           <NvTreeItem>
-            <span style={{ color: files }}>Index.tsx</span>
+            <span className={`flex gap-1 items-center`} style={{ color: foregroundFiles }}>
+              <IconBrandReact size={"18px"} />
+              Index.tsx
+            </span>
           </NvTreeItem>
           <NvTreeItem>
-            <span style={{ color: files }}>Nav.astro</span>
+            <span className={`flex gap-1 items-center`} style={{ color: foregroundFiles }}>
+              <IconRocket size={"18px"} />
+              Nav.astro
+            </span>
           </NvTreeItem>
           <NvTreeItem>
-            <span style={{ color: files }}>Product.java</span>
+            <span className={`flex gap-1 items-center`} style={{ color: foregroundFiles }}>
+              <IconCoffee size={"18px"} />
+              Product.java
+            </span>
           </NvTreeItem>
         </ul>
       </div>

@@ -8,10 +8,12 @@ interface Schema {
   backgroundEditor: string;
   comments: string;
   functions: string;
-  folders: string;
   keywords: string;
   variables: string;
-  backgroundNvTree: string;
+  //NvTree
+  backgroundNvT: string;
+  foregroundFoldersNvT: string;
+  foregroundFilesNvT: string;
   //Status Bar
   backgroundSB: string;
   backgroundModeSB: string;
@@ -29,10 +31,11 @@ interface Schema {
 export default function Nvim() {
   const [schemaState, setSchema] = useState<Schema | null>({
     backgroundEditor: `#2C3E50`,
-    backgroundNvTree: `#0000ff`,
+    backgroundNvT: `#0000ff`,
     comments: `#566573`,
     functions: `#FFAF69`,
-    folders: `#000000`,
+    foregroundFoldersNvT: `#000000`,
+    foregroundFilesNvT: `#404041`,
     keywords: `#303FAF`,
     variables: `#33ff00`,
     backgroundSB: `#333000`,
@@ -62,16 +65,16 @@ export default function Nvim() {
           style={{ background: schemaState?.backgroundEditor }}
         >
           <NvEditor
-            comments={`${schemaState?.comments}`}
-            keywords={`${schemaState?.keywords}`}
-            functions={`${schemaState?.functions}`}
-            variables={`${schemaState?.variables}`}
+            foregroundComments={`${schemaState?.comments}`}
+            foregroundKeywords={`${schemaState?.keywords}`}
+            foregroundFunctions={`${schemaState?.functions}`}
+            foregroundVariables={`${schemaState?.variables}`}
           />
         </div>
         <NvTree
-          folders={`${schemaState?.folders}`}
-          files={``}
-          backgroundNvTree={`${schemaState?.backgroundNvTree}`}
+          foregroundFolders={`${schemaState?.foregroundFoldersNvT}`}
+          foregroundFiles={`${schemaState?.foregroundFoldersNvT}`}
+          background={`${schemaState?.backgroundNvT}`}
         />
       </section>
       <div className="status-bar w-full">
