@@ -20,6 +20,10 @@ interface Schema {
   forendgroundLSPSB: string;
   backgroundFolderIconSB: string;
   forendgroundPerDocumentSB: string;
+  //Buffers
+  backgroundBF: string;
+  backgroundActiveBF: string;
+  backgroundInactiveBF: string;
 }
 
 export default function Nvim() {
@@ -38,14 +42,21 @@ export default function Nvim() {
     forendgroundLSPSB: `#121212`,
     backgroundFolderIconSB: `#ff0000`,
     forendgroundPerDocumentSB: `#66dd11`,
+    backgroundBF: `#ff00ff`,
+    backgroundActiveBF: `#ff5500`,
+    backgroundInactiveBF: `#ff2200`,
   });
 
   return (
-    <div className="container-nvim w-full flex flex-col py-5">
+    <div className="container-nvim w-full h-screen flex flex-col py-3">
       <div className="container-tabs">
-        <NvTabs />
+        <NvTabs
+          background={`${schemaState?.backgroundBF}`}
+          backgroundActive={`${schemaState?.backgroundActiveBF}`}
+          backgroundInactive={`${schemaState?.backgroundInactiveBF}`}
+        />
       </div>
-      <section className={`w-full grid grid-cols-6`}>
+      <section className={`w-full h-full grid grid-cols-6`}>
         <div
           className={`container-editor col-span-5 w-full min-h-full`}
           style={{ background: schemaState?.backgroundEditor }}
