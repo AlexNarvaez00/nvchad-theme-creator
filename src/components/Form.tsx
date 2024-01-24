@@ -1,9 +1,31 @@
 import { Label } from "@/components/ui/label";
 import { Input } from "@/components/ui/input";
+import useColors from "@/hoooks/useColors";
+import InputForm from "./InputForm";
 
 export default function Form() {
+  const { state, setState } = useColors();
+
+  const handleChange = (event: React.FormEvent<HTMLInputElement>) => {
+    const name = event.currentTarget.name;
+    const value = event.currentTarget.value;
+    setState({ ...state, [name]: value });
+  };
+
   return (
     <form className={`grid gap-4`}>
+      <InputForm
+        label="Backgound Editor"
+        name="background"
+        value={state.background}
+        onChange={handleChange}
+      />
+      <InputForm
+        label="Backgound NvTree"
+        name="backgroundTree"
+        value={state.backgroundTree}
+        onChange={handleChange}
+      />
       <div className={`grid w-full max-w-sm items-center gap-2`}>
         <Label htmlFor="input-comment">Commets</Label>
         <Input id="input-comment" name="comment" />
@@ -13,14 +35,6 @@ export default function Form() {
         <Input id="input-operadores" name="Operadores" />
       </div>
 
-      <div className={`grid w-full max-w-sm items-center gap-2`}>
-        <Label htmlFor="input-bg-nvtree">Backgound NvTree</Label>
-        <Input id="input-bg-nvtree" name="bg-nvtree" />
-      </div>
-      <div className={`grid w-full max-w-sm items-center gap-2`}>
-        <Label htmlFor="input-bg-editor">Backgound Editor</Label>
-        <Input id="input-bg-editor" name="bg-editor" />
-      </div>
       <div className={`grid w-full max-w-sm items-center gap-2`}>
         <Label htmlFor="input-fg-functions">
           Funciones, Metodos, Atributos

@@ -1,8 +1,6 @@
-interface Props {
-  background: string;
-  backgroundActive: string;
-  backgroundInactive: string;
-}
+import { NvTabsTypes } from "@/types/nvTabs";
+
+interface Props extends NvTabsTypes{}
 
 export default function NvTabs(
   { background, backgroundActive, backgroundInactive }: Props,

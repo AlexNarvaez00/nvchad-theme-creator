@@ -1,4 +1,5 @@
 import NvTreeItem from "./NvTreeItem";
+import { NvTreeTypes } from "@/types/nvTreeTypes";
 import {
   IconBrandReact,
   IconCoffee,
@@ -6,18 +7,14 @@ import {
   IconRocket,
 } from "@tabler/icons-react";
 
-interface Props {
-  foregroundFolders: string;
-  foregroundFiles: string;
-  background: string;
-}
+interface Props extends NvTreeTypes{}
 
-export default function NvTree({ foregroundFolders, foregroundFiles, background }: Props) {
+export default function NvTree({ foregroundFolders, foregroundFiles, backgroundTree }: Props) {
   return (
     <>
       <div
         className="container-menu col-span-1 px-5"
-        style={{ background: background }}
+        style={{ background: backgroundTree }}
       >
         <ul>
           <NvTreeItem>

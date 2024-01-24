@@ -1,9 +1,6 @@
-interface Props {
-  foregroundComments: string;
-  foregroundFunctions: string;
-  foregroundKeywords: string;
-  foregroundVariables: string;
-}
+import { NvEditorTypes } from "@/types/nvEditorTypes";
+
+interface Props extends NvEditorTypes{}
 
 export default function NvEditor({
   foregroundComments,
