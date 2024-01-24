@@ -12,7 +12,7 @@ export default function NvEditor({
   variables,
 }: Props) {
   return (
-    <pre>
+    <pre className={`pb-16 pl-4`}>
       <code style={{ color: comments }}>
         {`/**
  *

@@ -12,17 +12,32 @@ interface Schema {
   keywords: string;
   variables: string;
   backgroundNvTree: string;
+  //Status Bar
+  backgroundSB: string;
+  backgroundModeSB: string;
+  backgroundFileNameSB: string;
+  backgroundBranchSB: string;
+  forendgroundLSPSB: string;
+  backgroundFolderIconSB: string;
+  forendgroundPerDocumentSB: string;
 }
 
 export default function Nvim() {
   const [schemaState, setSchema] = useState<Schema | null>({
     backgroundEditor: `#2C3E50`,
+    backgroundNvTree: `#0000ff`,
     comments: `#566573`,
     functions: `#FFAF69`,
     folders: `#000000`,
     keywords: `#303FAF`,
     variables: `#33ff00`,
-    backgroundNvTree: `#0000ff`,
+    backgroundSB: `#333000`,
+    backgroundModeSB: `#404044`,
+    backgroundFileNameSB: `#33eeff`,
+    backgroundBranchSB: `#444999`,
+    forendgroundLSPSB: `#121212`,
+    backgroundFolderIconSB: `#ff0000`,
+    forendgroundPerDocumentSB: `#66dd11`,
   });
 
   return (
@@ -48,8 +63,16 @@ export default function Nvim() {
           backgroundNvTree={`${schemaState?.backgroundNvTree}`}
         />
       </section>
-      <div className="status-bar">
-      <NvStatusBar />
+      <div className="status-bar w-full">
+        <NvStatusBar
+          background={`${schemaState?.backgroundSB}`}
+          backgroundMode={`${schemaState?.backgroundModeSB}`}
+          backgroundFileName={`${schemaState?.backgroundFileNameSB}`}
+          backgroundBranch={`${schemaState?.backgroundBranchSB}`}
+          forendgroundLSP={`${schemaState?.forendgroundLSPSB}`}
+          backgroundFolderIcon={`${schemaState?.backgroundFolderIconSB}`}
+          forendgroundPerDocument={`${schemaState?.forendgroundPerDocumentSB}`}
+        />
       </div>
     </div>
   );
