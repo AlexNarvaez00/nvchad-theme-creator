@@ -1,7 +1,7 @@
-import { Label } from "@/components/ui/label";
-import { Input } from "@/components/ui/input";
 import useColors from "@/hoooks/useColors";
 import InputForm from "./InputForm";
+import { Separator } from "./ui/separator";
+import { Title } from "./Title";
 
 export default function Form() {
   const { state, setState } = useColors();
@@ -63,43 +63,46 @@ export default function Form() {
         onChange={handleChange}
       />
       <InputForm
-        label="Strings Class"
+        label="Strings, Char Scape"
         name="foregroundString"
         value={state.foregroundString}
         onChange={handleChange}
       />
+      <section className="mt-4 grid gap-4">
+        <Title type="h4">Status Bar</Title>
+        <Separator className="my-4" />
+        <InputForm
+          label="Normal Mode"
+          name="backgroundMode"
+          value={state.backgroundMode}
+          onChange={handleChange}
+        />
+        <InputForm
+          label="File name Status"
+          name="backgroundFileName"
+          value={state.backgroundFileName}
+          onChange={handleChange}
+        />
+        <InputForm
+          label="LSP color"
+          name="forendgroundLSP"
+          value={state.forendgroundLSP}
+          onChange={handleChange}
+        />
 
-      <div className={`grid w-full max-w-sm items-center gap-2`}>
-        <Label htmlFor="input-fg-quotes">
-          Comillas, caracacteres de escape y expreciones regulares
-        </Label>
-        <Input id="input-fg-quotes" name="fg-quotes" />
-      </div>
-
-      <div className={`grid w-full max-w-sm items-center gap-2`}>
-        <Label htmlFor="input-fg-class">
-          Clases, fondo de palabras buscadas.
-        </Label>
-        <Input id="input-fg-class" name="fg-class" />
-      </div>
-      <div className={`grid w-full max-w-sm items-center gap-2`}>
-        <Label htmlFor="input-fg-consts">Enteros, Booleanos y constantes</Label>
-        <Input id="input-fg-const" name="fg-consts" />
-      </div>
-      <div className={`grid w-full max-w-sm items-center gap-2`}>
-        <Label htmlFor="input-fg-consts">Enteros, Booleanos y constantes</Label>
-        <Input id="input-fg-const" name="fg-consts" />
-      </div>
-      <div className={`grid w-full max-w-sm items-center gap-2`}>
-        <Label htmlFor="input-bg-selection">
-          Enteros, Booleanos y constantes
-        </Label>
-        <Input id="input-bg-selection" name="bg-selection" />
-      </div>
-      <div className={`grid w-full max-w-sm items-center gap-2`}>
-        <Label htmlFor="input-bg-select-submenu">Color submenu</Label>
-        <Input id="input-bg-select-submenu" name="bg-select-submenu" />
-      </div>
+        <InputForm
+          label="Percentage file"
+          name="forendgroundPerDocument"
+          value={state.forendgroundPerDocument}
+          onChange={handleChange}
+        />
+        <InputForm
+          label="Name folder"
+          name="backgroundFolderIcon"
+          value={state.backgroundFolderIcon}
+          onChange={handleChange}
+        />
+      </section>
     </form>
   );
 }
