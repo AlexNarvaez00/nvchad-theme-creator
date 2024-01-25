@@ -11,9 +11,9 @@ export default function Nvim() {
     <div className="container-nvim w-full h-screen flex flex-col py-3">
       <div className="container-tabs">
         <NvTabs
-          background={`${state.background}`}
-          backgroundActive={`${state.backgroundActive}`}
-          backgroundInactive={`${state.backgroundInactive}`}
+          backgroundTabs={`${state.backgroundTabs}`}
+          backgroundActive={`${state.background}`}
+          backgroundInactive={`${state.backgroundTabs}`}
         />
       </div>
       <section className={`w-full h-full grid grid-cols-6`}>
@@ -26,11 +26,13 @@ export default function Nvim() {
             foregroundKeywords={`${state.foregroundKeywords}`}
             foregroundFunctions={`${state.foregroundFunctions}`}
             foregroundVariables={`${state.foregroundVariables}`}
+            foregroundOperators={`${state.foregroundOperators}`}
+            foregroundString={`${state.foregroundString}`}
           />
         </div>
         <NvTree
           foregroundFolders={`${state.foregroundFolders}`}
-          foregroundFiles={`${state.foregroundFolders}`}
+          foregroundFiles={`${state.foregroundFiles}`}
           backgroundTree={`${state.backgroundTree}`}
         />
       </section>

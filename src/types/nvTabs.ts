@@ -1,5 +1,5 @@
 export interface NvTabsTypes{
-  background: string;
+  backgroundTabs: string;
   backgroundActive: string;
   backgroundInactive: string;
 }

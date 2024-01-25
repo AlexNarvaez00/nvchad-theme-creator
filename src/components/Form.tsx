@@ -26,37 +26,56 @@ export default function Form() {
         value={state.backgroundTree}
         onChange={handleChange}
       />
-      <div className={`grid w-full max-w-sm items-center gap-2`}>
-        <Label htmlFor="input-comment">Commets</Label>
-        <Input id="input-comment" name="comment" />
-      </div>
-      <div className={`grid w-full max-w-sm items-center gap-2`}>
-        <Label htmlFor="input-operadores">Operadores</Label>
-        <Input id="input-operadores" name="Operadores" />
-      </div>
+      <InputForm
+        label="Forenground Folders"
+        name="foregroundFolders"
+        value={state.foregroundFolders}
+        onChange={handleChange}
+      />
+      <InputForm
+        label="Forenground Files"
+        name="foregroundFiles"
+        value={state.foregroundFiles}
+        onChange={handleChange}
+      />
+      <InputForm
+        label="Background Buffers"
+        name="backgroundTabs"
+        value={state.backgroundTabs}
+        onChange={handleChange}
+      />
+      <InputForm
+        label="Comments"
+        name="foregroundComments"
+        value={state.foregroundComments}
+        onChange={handleChange}
+      />
+      <InputForm
+        label="Operators"
+        name="foregroundOperators"
+        value={state.foregroundOperators}
+        onChange={handleChange}
+      />
+      <InputForm
+        label="Functions, Methods, attributes"
+        name="foregroundKeywords"
+        value={state.foregroundKeywords}
+        onChange={handleChange}
+      />
+      <InputForm
+        label="Strings Class"
+        name="foregroundString"
+        value={state.foregroundString}
+        onChange={handleChange}
+      />
 
-      <div className={`grid w-full max-w-sm items-center gap-2`}>
-        <Label htmlFor="input-fg-functions">
-          Funciones, Metodos, Atributos
-        </Label>
-        <Input id="input-fg-functions" name="fg-functions" />
-      </div>
-      <div className={`grid w-full max-w-sm items-center gap-2`}>
-        <Label htmlFor="input-fg-keywords">Palabras cable, selector</Label>
-        <Input id="input-fg-keywords" name="fg-keywords" />
-      </div>
       <div className={`grid w-full max-w-sm items-center gap-2`}>
         <Label htmlFor="input-fg-quotes">
           Comillas, caracacteres de escape y expreciones regulares
         </Label>
         <Input id="input-fg-quotes" name="fg-quotes" />
       </div>
-      <div className={`grid w-full max-w-sm items-center gap-2`}>
-        <Label htmlFor="input-fg-strings">
-          Cadenas, clases heredadas (Lineas agregadas)
-        </Label>
-        <Input id="input-fg-quotes" name="fg-quotes" />
-      </div>
+
       <div className={`grid w-full max-w-sm items-center gap-2`}>
         <Label htmlFor="input-fg-class">
           Clases, fondo de palabras buscadas.

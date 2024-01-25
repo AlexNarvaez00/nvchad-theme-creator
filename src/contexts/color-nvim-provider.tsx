@@ -21,19 +21,22 @@ interface StateProvider {
 
 const initialState: State = {
   background: `#000000`,
-  backgroundTree: `#000000`,
   backgroundActive: `#000000`,
   backgroundBranch: `#000000`,
   backgroundFileName: `#000000`,
   backgroundFolderIcon: `#000000`,
   backgroundInactive: `#000000`,
   backgroundMode: `#000000`,
+  backgroundTabs: `#000000`,
+  backgroundTree: `#000000`,
   foregroundComments: `#000000`,
   foregroundFiles: `#000000`,
   foregroundFolders: `#000000`,
   foregroundFunctions: `#000000`,
   foregroundKeywords: `#000000`,
+  foregroundOperators: `#000000`,
   foregroundVariables: `#000000`,
+  foregroundString: `#000000`, 
   forendgroundLSP: `#000000`,
   forendgroundPerDocument: `#000000`,
 };
