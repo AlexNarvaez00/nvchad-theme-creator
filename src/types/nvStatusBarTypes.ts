@@ -1,5 +1,5 @@
 export interface NvStatusBarTypes {
-  background: string;
+  backgroundStatusBar: string;
   backgroundMode: string;
   backgroundFileName: string;
   backgroundBranch: string;

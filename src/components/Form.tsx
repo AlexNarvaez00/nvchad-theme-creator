@@ -59,6 +59,12 @@ export default function Form() {
         <Title type="h4">Status Bar</Title>
         <Separator className="my-4" />
         <InputForm
+          label="Background"
+          name="backgroundStatusBar"
+          value={state.backgroundStatusBar}
+          onChange={handleChange}
+        />
+        <InputForm
           label="Normal Mode"
           name="backgroundMode"
           value={state.backgroundMode}

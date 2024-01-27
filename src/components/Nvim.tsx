@@ -39,13 +39,15 @@ export default function Nvim() {
       </section>
       <div className="status-bar w-full">
         <NvStatusBar
-          background={`${state.background}`}
+          backgroundStatusBar={`${state.backgroundStatusBar}`}
           backgroundMode={`${state.backgroundMode}`}
           backgroundFileName={`${state.backgroundFileName}`}
           backgroundBranch={`${state.backgroundBranch}`}
           forendgroundLSP={`${state.backgroundMode}`}
           backgroundFolderIcon={`${state.backgroundFolderIcon}`}
           forendgroundPerDocument={`${state.forendgroundPerDocument}`}
+          foregroundIconPer={`${state.background}`}
+          foregroundMode={`${state.background}`}
         />
       </div>
     </div>
