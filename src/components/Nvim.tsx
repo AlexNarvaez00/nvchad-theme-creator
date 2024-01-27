@@ -34,6 +34,7 @@ export default function Nvim() {
           foregroundFolders={`${state.foregroundFolders}`}
           foregroundFiles={`${state.foregroundFiles}`}
           backgroundTree={`${state.backgroundTree}`}
+          foregroundChevron={`${state.foregroundComments}`}
         />
       </section>
       <div className="status-bar w-full">
@@ -42,7 +43,7 @@ export default function Nvim() {
           backgroundMode={`${state.backgroundMode}`}
           backgroundFileName={`${state.backgroundFileName}`}
           backgroundBranch={`${state.backgroundBranch}`}
-          forendgroundLSP={`${state.forendgroundLSP}`}
+          forendgroundLSP={`${state.backgroundMode}`}
           backgroundFolderIcon={`${state.backgroundFolderIcon}`}
           forendgroundPerDocument={`${state.forendgroundPerDocument}`}
         />

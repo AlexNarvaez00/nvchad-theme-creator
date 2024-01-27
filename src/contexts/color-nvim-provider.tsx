@@ -5,10 +5,7 @@ import { NvTreeTypes } from "@/types/nvTreeTypes";
 import { createContext, useState } from "react";
 
 interface State
-  extends NvEditorTypes,
-    NvTabsTypes,
-    NvStatusBarTypes,
-    NvTreeTypes {}
+  extends NvEditorTypes, NvTabsTypes, NvStatusBarTypes, NvTreeTypes {}
 
 interface Props {
   children: React.ReactNode;
@@ -36,9 +33,10 @@ const initialState: State = {
   foregroundKeywords: `#000000`,
   foregroundOperators: `#000000`,
   foregroundVariables: `#000000`,
-  foregroundString: `#000000`, 
+  foregroundString: `#000000`,
   forendgroundLSP: `#000000`,
   forendgroundPerDocument: `#000000`,
+  foregroundChevron: `#000000`,
 };
 
 export const ColorsNvimContext = createContext<StateProvider>({

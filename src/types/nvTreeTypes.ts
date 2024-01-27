@@ -1,5 +1,6 @@
 export interface NvTreeTypes {
-  foregroundFolders: string;
-  foregroundFiles: string;
   backgroundTree: string;
+  foregroundChevron: string;
+  foregroundFiles: string;
+  foregroundFolders: string;
 }

@@ -7,15 +7,16 @@ interface Props {
   label: string;
   name: string;
   value:string;
+  disabled?:  boolean; 
 }
 
-export default function InputForm({ onChange, label, name, value  }: Props) {
+export default function InputForm({ onChange, label, name, value, disabled  }: Props) {
   const id = useId();
 
   return (
     <div className={`grid w-full max-w-sm items-center gap-2`}>
       <Label htmlFor={id}>{label}</Label>
-      <Input id={id} name={name} onChange={onChange} value={value} />
+      <Input id={id} disabled={disabled} name={name} onChange={onChange} value={value} />
     </div>
   );
 }

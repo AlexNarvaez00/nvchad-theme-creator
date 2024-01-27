@@ -14,60 +14,47 @@ export default function Form() {
 
   return (
     <form className={`grid gap-4`}>
-      <InputForm
-        label="Backgound Editor"
-        name="background"
-        value={state.background}
-        onChange={handleChange}
-      />
-      <InputForm
-        label="Backgound NvTree"
-        name="backgroundTree"
-        value={state.backgroundTree}
-        onChange={handleChange}
-      />
-      <InputForm
-        label="Forenground Folders"
-        name="foregroundFolders"
-        value={state.foregroundFolders}
-        onChange={handleChange}
-      />
-      <InputForm
-        label="Forenground Files"
-        name="foregroundFiles"
-        value={state.foregroundFiles}
-        onChange={handleChange}
-      />
-      <InputForm
-        label="Background Buffers"
-        name="backgroundTabs"
-        value={state.backgroundTabs}
-        onChange={handleChange}
-      />
-      <InputForm
-        label="Comments"
-        name="foregroundComments"
-        value={state.foregroundComments}
-        onChange={handleChange}
-      />
-      <InputForm
-        label="Operators"
-        name="foregroundOperators"
-        value={state.foregroundOperators}
-        onChange={handleChange}
-      />
-      <InputForm
-        label="Functions, Methods, attributes"
-        name="foregroundKeywords"
-        value={state.foregroundKeywords}
-        onChange={handleChange}
-      />
-      <InputForm
-        label="Strings, Char Scape"
-        name="foregroundString"
-        value={state.foregroundString}
-        onChange={handleChange}
-      />
+      <section className="mt-4 grid gap-4">
+        <Title type="h4">NvTree</Title>
+        <Separator className="my-4" />
+        <InputForm
+          label="Backgound NvTree"
+          name="backgroundTree"
+          value={state.backgroundTree}
+          onChange={handleChange}
+        />
+        <InputForm
+          label="Forenground Folders"
+          name="foregroundFolders"
+          value={state.foregroundFolders}
+          onChange={handleChange}
+        />
+        <InputForm
+          label="Forenground Files"
+          name="foregroundFiles"
+          value={state.foregroundFiles}
+          onChange={handleChange}
+        />
+        <InputForm
+          label="Chevron"
+          name="foregroundComments"
+          value={state.foregroundComments}
+          onChange={handleChange}
+          disabled={true}
+        />
+
+      </section>
+      <section className="mt-4 grid gap-4">
+        <Title type="h4">Tabs</Title>
+        <Separator className="my-4" />
+        <InputForm
+          label="Background Buffers"
+          name="backgroundTabs"
+          value={state.backgroundTabs}
+          onChange={handleChange}
+        />
+      </section>
+
       <section className="mt-4 grid gap-4">
         <Title type="h4">Status Bar</Title>
         <Separator className="my-4" />
@@ -85,11 +72,11 @@ export default function Form() {
         />
         <InputForm
           label="LSP color"
-          name="forendgroundLSP"
-          value={state.forendgroundLSP}
+          name="backgroundMode"
+          value={state.backgroundMode}
           onChange={handleChange}
+          disabled={true}
         />
-
         <InputForm
           label="Percentage file"
           name="forendgroundPerDocument"
@@ -100,6 +87,41 @@ export default function Form() {
           label="Name folder"
           name="backgroundFolderIcon"
           value={state.backgroundFolderIcon}
+          onChange={handleChange}
+        />
+      </section>
+      <section className="mt-4 grid gap-4">
+        <Title type="h4">Editor</Title>
+        <Separator className="my-4" />
+        <InputForm
+          label="Backgound Editor"
+          name="background"
+          value={state.background}
+          onChange={handleChange}
+        />
+
+        <InputForm
+          label="Comments"
+          name="foregroundComments"
+          value={state.foregroundComments}
+          onChange={handleChange}
+        />
+        <InputForm
+          label="Operators"
+          name="foregroundOperators"
+          value={state.foregroundOperators}
+          onChange={handleChange}
+        />
+        <InputForm
+          label="Functions, Methods, attributes"
+          name="foregroundKeywords"
+          value={state.foregroundKeywords}
+          onChange={handleChange}
+        />
+        <InputForm
+          label="Strings, Char Scape"
+          name="foregroundString"
+          value={state.foregroundString}
           onChange={handleChange}
         />
       </section>
