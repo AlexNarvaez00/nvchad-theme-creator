@@ -1,9 +1,8 @@
 import { NvEditorTypes } from "@/types/nvEditorTypes";
-import { NvTabsTypes } from "@/types/nvTabs";
 import { createContext, useState } from "react";
 
 interface State
-  extends NvEditorTypes, NvTabsTypes{
+  extends NvEditorTypes{
 background:string
   }
 
@@ -18,9 +17,6 @@ interface StateProvider {
 
 const initialState: State = {
   background: `#1e1e2e`,
-  backgroundActive: `#000000`,
-  backgroundInactive: `#000000`,
-  backgroundTabs: `#000000`,
   foregroundComments: `#000000`,
   foregroundFunctions: `#000000`,
   foregroundKeywords: `#000000`,
