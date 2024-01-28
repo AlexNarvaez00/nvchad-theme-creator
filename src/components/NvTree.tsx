@@ -6,13 +6,19 @@ import { useBase30 } from "@/hooks/useBase30";
 interface Props {}
 
 export default function NvTree({}: Props) {
-  const { darker_black, black2 } = useBase30();
+  const { darker_black, black2, line } = useBase30();
 
   return (
     <div
-      className="container-menu col-span-1 pl-3"
+      className="container-menu col-span-1 pl-3 relative"
       style={{ background: darker_black }}
     >
+      <span
+        className="absolute w-[2px] h-full top-0 left-[-6px]"
+        style={{ background: line }}
+
+      >
+      </span>
       <NvTreeDir title="src" open>
         <NvTreeDir
           title="components"

@@ -9,12 +9,8 @@ export default function Nvim() {
 
   return (
     <div className="container-nvim w-full h-screen flex flex-col py-3">
-      <div className="container-tabs">
-        <NvTabs
-          backgroundTabs={`${state.backgroundTabs}`}
-          backgroundActive={`${state.background}`}
-          backgroundInactive={`${state.backgroundTabs}`}
-        />
+      <div className="container-tabs flex justify-between items-center">
+        <NvTabs />
       </div>
       <section className={`w-full h-full grid grid-cols-6`}>
         <div
@@ -32,7 +28,7 @@ export default function Nvim() {
         </div>
         <NvTree />
       </section>
-      <div className="status-bar w-full">
+      <div className="status-bar w-full z-50">
         <NvStatusBar />
       </div>
     </div>

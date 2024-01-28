@@ -13,6 +13,7 @@ export default function Form() {
     statusline_bg,
     lightbg,
     green,
+    line,
     folder_bg,
     darker_black,
   } = useBase30();
@@ -54,6 +55,12 @@ export default function Form() {
           value={black2}
           onChange={handleChangeBase30}
         />
+        <InputForm
+          label="Line"
+          name="line"
+          value={line}
+          onChange={handleChangeBase30}
+        />
       </section>
       <section className="mt-4 grid gap-4">
         <Title type="h4">Tabs</Title>
@@ -63,6 +70,7 @@ export default function Form() {
           name="black2"
           value={black2}
           onChange={handleChangeBase30}
+          disabled={true}
         />
       </section>
 
