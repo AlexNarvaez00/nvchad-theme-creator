@@ -6,7 +6,16 @@ import { useBase16 } from "@/hooks/useBase16";
 import { useBase30 } from "@/hooks/useBase30";
 
 export default function Form() {
-  const { setColor, nord_blue, statusline_bg, lightbg, green } = useBase30();
+  const {
+    setColor,
+    black2,
+    nord_blue,
+    statusline_bg,
+    lightbg,
+    green,
+    folder_bg,
+    darker_black,
+  } = useBase30();
 
   const { state, setState } = useColors();
 
@@ -29,28 +38,21 @@ export default function Form() {
         <Separator className="my-4" />
         <InputForm
           label="Backgound NvTree"
-          name="backgroundTree"
-          value={state.backgroundTree}
-          onChange={handleChange}
+          name="darker_black"
+          value={darker_black}
+          onChange={handleChangeBase30}
         />
         <InputForm
           label="Forenground Folders"
-          name="foregroundFolders"
-          value={state.foregroundFolders}
-          onChange={handleChange}
+          name="folder_bg"
+          value={folder_bg}
+          onChange={handleChangeBase30}
         />
         <InputForm
-          label="Forenground Files"
-          name="foregroundFiles"
-          value={state.foregroundFiles}
-          onChange={handleChange}
-        />
-        <InputForm
-          label="Chevron"
-          name="foregroundComments"
-          value={state.foregroundComments}
-          onChange={handleChange}
-          disabled={true}
+          label="Background open folder"
+          name="black2"
+          value={black2}
+          onChange={handleChangeBase30}
         />
       </section>
       <section className="mt-4 grid gap-4">
@@ -58,9 +60,9 @@ export default function Form() {
         <Separator className="my-4" />
         <InputForm
           label="Background Buffers"
-          name="backgroundTabs"
-          value={state.backgroundTabs}
-          onChange={handleChange}
+          name="black2"
+          value={black2}
+          onChange={handleChangeBase30}
         />
       </section>
 

@@ -30,12 +30,7 @@ export default function Nvim() {
             foregroundString={`${state.foregroundString}`}
           />
         </div>
-        <NvTree
-          foregroundFolders={`${state.foregroundFolders}`}
-          foregroundFiles={`${state.foregroundFiles}`}
-          backgroundTree={`${state.backgroundTree}`}
-          foregroundChevron={`${state.foregroundComments}`}
-        />
+        <NvTree />
       </section>
       <div className="status-bar w-full">
         <NvStatusBar />

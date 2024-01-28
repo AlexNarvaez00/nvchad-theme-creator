@@ -4,13 +4,13 @@ import { create } from "zustand";
 export const useColorStore = create<Colors>((set) => ({
   base30: {
     baby_pink: `#000000`,
-    black2: `#000000`,
+    black2: `#313142`,
     black: `#000000`,
     blue: `#000000`,
     cyan: `#000000`,
     dark_purple: `#000000`,
-    darker_black: `#000000`,
-    folder_bg: `#000000`,
+    darker_black: `#11111b`,
+    folder_bg: `#89b4fa`,
     green: `#a6e3a1`,
     grey: `#000000`,
     grey_fg2: `#000000`,

@@ -1,73 +1,39 @@
+import NvTreeDir from "./NvTreeDir";
 import NvTreeItem from "./NvTreeItem";
-import { NvTreeTypes } from "@/types/nvTreeTypes";
-import {
-  IconBrandReact,
-  IconChevronRight,
-  IconCoffee,
-  IconFolderFilled,
-  IconRocket,
-} from "@tabler/icons-react";
+import { IconBrandReact } from "@tabler/icons-react";
 import { useBase30 } from "@/hooks/useBase30";
 
-interface Props extends NvTreeTypes {}
+interface Props {}
 
-export default function NvTree({
-  foregroundFolders,
-  foregroundChevron,
-  foregroundFiles,
-  backgroundTree,
-}: Props) {
-  const { darker_black } = useBase30();
+export default function NvTree({}: Props) {
+  const { darker_black, black2 } = useBase30();
+
   return (
-    <>
-      <div
-        className="container-menu col-span-1 px-5"
-        style={{ background: darker_black }}
-      >
-        <ul>
+    <div
+      className="container-menu col-span-1 pl-3"
+      style={{ background: darker_black }}
+    >
+      <NvTreeDir title="src" open>
+        <NvTreeDir
+          title="components"
+          open
+          active={true}
+          style={{ background: black2 }}
+        >
           <NvTreeItem>
-            <span
-              className={`flex gap-1 items-center`}
-              style={{ color: foregroundFolders }}
-            >
-              <IconChevronRight
-                size={"18px"}
-                className="-ml-[20px]"
-                style={{ color: foregroundChevron }}
-              />
-              <IconFolderFilled size={"18px"} />
-              src
-            </span>
+            <IconBrandReact size={"16px"} className="inline-block" /> Card.tsx
           </NvTreeItem>
-          <NvTreeItem>
-            <span
-              className={`flex gap-1 items-center`}
-              style={{ color: foregroundFiles }}
-            >
-              <IconBrandReact size={"18px"} />
-              Index.tsx
-            </span>
-          </NvTreeItem>
-          <NvTreeItem>
-            <span
-              className={`flex gap-1 items-center`}
-              style={{ color: foregroundFiles }}
-            >
-              <IconRocket size={"18px"} />
-              Nav.astro
-            </span>
-          </NvTreeItem>
-          <NvTreeItem>
-            <span
-              className={`flex gap-1 items-center`}
-              style={{ color: foregroundFiles }}
-            >
-              <IconCoffee size={"18px"} />
-              Product.java
-            </span>
-          </NvTreeItem>
-        </ul>
-      </div>
-    </>
+        </NvTreeDir>
+        <NvTreeDir title="hooks"></NvTreeDir>
+        <NvTreeDir title="store"></NvTreeDir>
+        <NvTreeDir title="pages"></NvTreeDir>
+        <NvTreeItem>
+          <IconBrandReact size={"16px"} className="inline-block" /> App.tsx
+        </NvTreeItem>
+        <NvTreeItem>
+          <IconBrandReact size={"16px"} className="inline-block" /> index.tsx
+        </NvTreeItem>
+      </NvTreeDir>
+    </div>
   );
 }
