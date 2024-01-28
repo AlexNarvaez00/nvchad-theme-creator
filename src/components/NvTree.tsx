@@ -7,6 +7,7 @@ import {
   IconFolderFilled,
   IconRocket,
 } from "@tabler/icons-react";
+import { useBase30 } from "@/hooks/useBase30";
 
 interface Props extends NvTreeTypes {}
 
@@ -16,11 +17,12 @@ export default function NvTree({
   foregroundFiles,
   backgroundTree,
 }: Props) {
+  const { darker_black } = useBase30();
   return (
     <>
       <div
         className="container-menu col-span-1 px-5"
-        style={{ background: backgroundTree }}
+        style={{ background: darker_black }}
       >
         <ul>
           <NvTreeItem>
