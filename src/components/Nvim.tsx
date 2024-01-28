@@ -2,7 +2,7 @@ import NvEditor from "./NvEditor";
 import NvStatusBar from "./NvStatusBar";
 import NvTabs from "./NvTabs";
 import NvTree from "./NvTree";
-import useColors from "@/hoooks/useColors";
+import useColors from "@/hooks/useColors";
 
 export default function Nvim() {
   const { state } = useColors();
@@ -38,17 +38,7 @@ export default function Nvim() {
         />
       </section>
       <div className="status-bar w-full">
-        <NvStatusBar
-          backgroundStatusBar={`${state.backgroundStatusBar}`}
-          backgroundMode={`${state.backgroundMode}`}
-          backgroundFileName={`${state.backgroundFileName}`}
-          backgroundBranch={`${state.backgroundBranch}`}
-          forendgroundLSP={`${state.backgroundMode}`}
-          backgroundFolderIcon={`${state.backgroundFolderIcon}`}
-          forendgroundPerDocument={`${state.forendgroundPerDocument}`}
-          foregroundIconPer={`${state.background}`}
-          foregroundMode={`${state.background}`}
-        />
+        <NvStatusBar />
       </div>
     </div>
   );

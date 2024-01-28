@@ -1,15 +1,25 @@
-import useColors from "@/hoooks/useColors";
+import useColors from "@/hooks/useColors";
 import InputForm from "./InputForm";
 import { Separator } from "./ui/separator";
 import { Title } from "./Title";
+import { useBase16 } from "@/hooks/useBase16";
+import { useBase30 } from "@/hooks/useBase30";
 
 export default function Form() {
+  const { setColor, nord_blue, statusline_bg, lightbg, green } = useBase30();
+
   const { state, setState } = useColors();
 
   const handleChange = (event: React.FormEvent<HTMLInputElement>) => {
     const name = event.currentTarget.name;
     const value = event.currentTarget.value;
     setState({ ...state, [name]: value });
+  };
+
+  const handleChangeBase30 = (event: React.FormEvent<HTMLInputElement>) => {
+    const name = event.currentTarget.name;
+    const value = event.currentTarget.value;
+    setColor(name, value);
   };
 
   return (
@@ -42,7 +52,6 @@ export default function Form() {
           onChange={handleChange}
           disabled={true}
         />
-
       </section>
       <section className="mt-4 grid gap-4">
         <Title type="h4">Tabs</Title>
@@ -60,34 +69,34 @@ export default function Form() {
         <Separator className="my-4" />
         <InputForm
           label="Background"
-          name="backgroundStatusBar"
-          value={state.backgroundStatusBar}
-          onChange={handleChange}
+          name="statusline_bg"
+          value={statusline_bg}
+          onChange={handleChangeBase30}
         />
         <InputForm
           label="Normal Mode"
-          name="backgroundMode"
-          value={state.backgroundMode}
-          onChange={handleChange}
+          name="nord_blue"
+          value={nord_blue}
+          onChange={handleChangeBase30}
         />
         <InputForm
           label="File name Status"
-          name="backgroundFileName"
-          value={state.backgroundFileName}
-          onChange={handleChange}
+          name="lightbg"
+          value={lightbg}
+          onChange={handleChangeBase30}
         />
         <InputForm
           label="LSP color"
-          name="backgroundMode"
-          value={state.backgroundMode}
-          onChange={handleChange}
+          name="nord_blue"
+          value={nord_blue}
+          onChange={handleChangeBase30}
           disabled={true}
         />
         <InputForm
           label="Percentage file"
-          name="forendgroundPerDocument"
-          value={state.forendgroundPerDocument}
-          onChange={handleChange}
+          name="green"
+          value={green}
+          onChange={handleChangeBase30}
         />
         <InputForm
           label="Name folder"

@@ -4,38 +4,30 @@ import {
   IconFolderFilled,
   IconGitBranch,
 } from "@tabler/icons-react";
-import { NvStatusBarTypes } from "@/types/nvStatusBarTypes";
+import { useBase16 } from "@/hooks/useBase16";
+import { useBase30 } from "@/hooks/useBase30";
 
-interface Props extends NvStatusBarTypes {
-  foregroundIconPer: string;
-  foregroundMode: string;
+interface Props {
 }
+export default function NvStatusBar({}: Props) {
+  const { nord_blue, statusline_bg, lightbg, one_bg, green, red } = useBase30();
+  const { base00 } = useBase16();
 
-export default function NvStatusBar({
-  backgroundStatusBar,
-  backgroundMode,
-  backgroundFileName,
-  forendgroundLSP,
-  backgroundFolderIcon,
-  forendgroundPerDocument,
-  foregroundMode,
-  foregroundIconPer,
-}: Props) {
   return (
     <section
       className={`w-full flex justify-between -mt-8`}
-      style={{ background: backgroundStatusBar }}
+      style={{ background: statusline_bg }}
     >
       <div className={`flex gap-2`}>
         <div
           className={`mode-container font-bold px-3 uppercase rounded-xl overflow-hidden`}
-          style={{ background: backgroundMode, color:foregroundMode }}
+          style={{ background: nord_blue, color: base00 }}
         >
           Normal
         </div>
         <div
           className={`px-3 flex gap-2 items-center rounded-xl overflow-hidden`}
-          style={{ background: backgroundFileName }}
+          style={{ background: lightbg }}
         >
           <IconBrandReact size={"17px"} /> Index.tsx
         </div>
@@ -47,18 +39,18 @@ export default function NvStatusBar({
         </div>
       </div>
       <div className={`flex gap-2`}>
-        <div className={`px-3`} style={{ color: forendgroundLSP }}>
+        <div className={`px-3`} style={{ color: nord_blue }}>
           LSP ~ tsserver
         </div>
         <div
           className={`pr-3 flex items-center rounded-xl overflow-hidden`}
           style={{
-            background: backgroundFileName,
+            background: lightbg,
           }}
         >
           <span
             className="px-2 py-1 mr-2"
-            style={{ background: backgroundFolderIcon }}
+            style={{ background: red, color:one_bg }}
           >
             <IconFolderFilled size={"16px"} />
           </span>
@@ -67,13 +59,13 @@ export default function NvStatusBar({
         <div
           className={`pr-3 flex items-center rounded-xl overflow-hidden`}
           style={{
-            background: backgroundFileName,
-            color: forendgroundPerDocument,
+            background: lightbg,
+            color: green,
           }}
         >
           <span
             className="px-2 py-1 mr-2"
-            style={{ background: forendgroundPerDocument, color:foregroundIconPer }}
+            style={{ background: green, color: base00 }}
           >
             <IconAlignJustified size={"16px"} />
           </span>
