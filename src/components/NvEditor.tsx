@@ -1,31 +1,164 @@
-import { NvEditorTypes } from "@/types/nvEditorTypes";
+import { useBase30 } from "@/hooks/useBase30";
+import { useBase16 } from "@/hooks/useBase16";
+import { Line } from "./Line";
 
-interface Props extends NvEditorTypes {}
+interface Props {}
 
-export default function NvEditor({
-  foregroundComments,
-  foregroundFunctions,
-  foregroundKeywords,
-  foregroundOperators,
-  foregroundVariables,
-  foregroundString
-}: Props) {
+export default function NvEditor({}: Props) {
+  const { grey, grey_fg, purple } = useBase30();
+  const {
+    base02,
+    base05,
+    base08,
+    base09,
+    base0A,
+    base0B,
+    base0C,
+    base0D,
+    base0E,
+    base0F,
+  } = useBase16();
+  let line = 0;
+
+  const keyword = { color: base0E };
+  const comment = { color: grey_fg };
+  const variables = { color: base08 };
+  const operators = { color: base05 };
+
   return (
     <pre className={`pb-16 pl-4`}>
-      <code style={{ color: foregroundComments }}>
-        {`/**
- *
- *
- */
-`}
-      </code>
-      <code style={{ color: foregroundKeywords }}>export default function</code>
-      <code style={{ color: foregroundFunctions }}> List</code>() <code>{`{\n`}</code>
-      <code style={{ color: foregroundKeywords }}>const </code> <span style={{ color: foregroundVariables}}>name</span> <code style={{ color: foregroundOperators}}>=</code> <code style={{ color: foregroundString
-}}>"Alexis"</code>;{`\n`}
-      <code>{`\n`}return {`(\n`}</code>
-      <code>{`);`}</code>
-      <code>{`}`}</code>
+      <ul>
+        <Line number={line++} color={grey}>
+          <code style={comment}>{`/* comments  */`}</code>
+        </Line>
+        <Line number={line++} color={grey}>
+          <code style={comment}>{`/* hola soy un comentario */`}</code>
+        </Line>
+        <Line number={line++} color={grey}>
+          {``}
+        </Line>
+        <Line number={line++} color={grey}>
+          <code style={comment}>{`/* keywords */`}</code>
+        </Line>
+        <Line number={line++} color={grey}>
+          <code
+            style={keyword}
+          >{`var let const default import for while do export from class interface`}</code>
+        </Line>
+        <Line number={line++} color={grey}>
+          <code
+            style={comment}
+          >{`/* Classes, Interfaces, Markup Bold, Search Text Background */`}</code>
+        </Line>
+        <Line number={line++} color={grey}>
+          <code style={comment}>{``}</code>
+        </Line>
+        <Line number={line++} color={grey}>
+          <code style={keyword}>class</code>{" "}
+          <code style={{ color: base0A }}>{`Person`}</code>
+        </Line>
+        <Line number={line++} color={grey}>
+          <code style={keyword}>interface</code>{" "}
+          <code style={{ color: base0A }}>{`Props`}</code>
+        </Line>
+        <Line number={line++} color={grey}>
+          <code style={comment}>{``}</code>
+        </Line>
+        <Line number={line++} color={grey}>
+          <code style={comment}>{`/* Functions and Methods */`}</code>
+        </Line>
+        <Line number={line++} color={grey}>
+          <code style={comment}>{``}</code>
+        </Line>
+        <Line number={line++} color={grey}>
+          <code style={keyword}>{`function`}</code>{" "}
+          <code style={{ color: base0D }}>{`Post`}</code>
+          <code style={{ color: base0F }}>{`(){}`}</code>
+        </Line>
+        <Line number={line++} color={grey}>
+          <code style={comment}>{``}</code>
+        </Line>
+        <Line number={line++} color={grey}>
+          <code style={comment}>{`/* regular expresions */`}</code>
+        </Line>
+        <Line number={line++} color={grey}>
+          <code style={keyword}>{`const`}</code> regex = /
+          <code style={{ color: base0C }}>{`^[a-z]`}</code>/$;
+        </Line>
+        <Line number={line++} color={grey}>
+          <code style={comment}>{``}</code>
+        </Line>
+        <Line number={line++} color={grey}>
+          <code style={comment}>{`/* strings */`}</code>
+        </Line>
+        <Line number={line++} color={grey}>
+          <code style={comment}>{``}</code>
+        </Line>
+        <Line number={line++} color={grey}>
+          <code style={keyword}>{`const`}</code> name ={" "}
+          <code style={{ color: base0B }}>{`"Alexis"`}</code>;
+        </Line>
+        <Line number={line++} color={grey}>
+          <code style={comment}>{``}</code>
+        </Line>
+        <Line number={line++} color={grey}>
+          <code style={comment}>{`/* Integers, Boolean, Constants */`}</code>
+        </Line>
+        <Line number={line++} color={grey}>
+          <code style={keyword}>{`const`}</code> age ={" "}
+          <code style={{ color: base09 }}>10</code>;
+        </Line>
+        <Line number={line++} color={grey}>
+          <code style={keyword}>{`const`}</code> active ={" "}
+          <code style={{ color: base09 }}>true</code>;
+        </Line>
+        <Line number={line++} color={grey}>
+          <code style={comment}>{``}</code>
+        </Line>
+        <Line number={line++} color={grey}>
+          <code style={comment}>{`/* Variables */`}</code>
+        </Line>
+        <Line number={line++} color={grey}>
+          <code style={comment}>{``}</code>
+        </Line>
+        <Line number={line++} color={grey}>
+          <code style={keyword}>{`let `}</code>
+          <code style={variables}>name</code> ={" "}
+          <code style={{ color: base0B }}>"alex"</code>
+        </Line>
+        <Line number={line++} color={grey}>
+          <code style={comment}>{``}</code>
+        </Line>
+        <Line number={line++} color={grey}>
+          <code style={comment}>{`/* Operators */`}</code>
+        </Line>
+        <Line number={line++} color={grey}>
+          <code style={comment}>{``}</code>
+        </Line>
+        <Line number={line++} color={grey}>
+          <code style={operators}>{`< > != === >= <= ! && + * % ||`}</code>
+        </Line>
+        <Line number={line++} color={grey}>
+          <code style={comment}>{``}</code>
+        </Line>
+        <Line number={line++} color={grey}>
+          <code style={comment}>{`/* Text selected */`}</code>
+        </Line>
+        <Line number={line++} color={grey}>
+          <code style={comment}>{``}</code>
+        </Line>
+        <Line number={line++} color={grey}>
+          <code style={{ background: base02 }}>{`texto selected`}</code>
+        </Line>
+        <Line number={line++} color={grey}>
+          <code style={comment}>{``}</code>
+        </Line><Line number={line++} color={grey}>
+          <code style={comment}>{`/* Error */`}</code>
+        </Line>
+        <Line number={line++} color={grey}>
+          scsdcsc <code style={{ color: purple }}>{`Error syntax`}</code>
+        </Line>
+      </ul>
     </pre>
   );
 }

@@ -1,12 +1,12 @@
 import NvTreeDir from "./NvTreeDir";
 import NvTreeItem from "./NvTreeItem";
-import { IconBrandReact } from "@tabler/icons-react";
+import { IconBrandReact, IconFileTypeJs,IconFileTypeTs } from "@tabler/icons-react";
 import { useBase30 } from "@/hooks/useBase30";
 
 interface Props {}
 
 export default function NvTree({}: Props) {
-  const { darker_black, black2, line } = useBase30();
+  const { darker_black, black2, line, yellow,teal } = useBase30();
 
   return (
     <div
@@ -16,9 +16,7 @@ export default function NvTree({}: Props) {
       <span
         className="absolute w-[2px] h-full top-0 left-[-6px]"
         style={{ background: line }}
-
-      >
-      </span>
+      ></span>
       <NvTreeDir title="src" open>
         <NvTreeDir
           title="components"
@@ -38,6 +36,22 @@ export default function NvTree({}: Props) {
         </NvTreeItem>
         <NvTreeItem>
           <IconBrandReact size={"16px"} className="inline-block" /> index.tsx
+        </NvTreeItem>
+        <NvTreeItem>
+          <IconFileTypeJs
+            size={"16px"}
+            className="inline-block"
+            style={{ color: yellow }}
+          />{" "}
+          index.js
+        </NvTreeItem>
+        <NvTreeItem>
+          <IconFileTypeTs
+            size={"16px"}
+            className="inline-block"
+            style={{ color: teal}}
+          />{" "}
+          index.ts
         </NvTreeItem>
       </NvTreeDir>
     </div>

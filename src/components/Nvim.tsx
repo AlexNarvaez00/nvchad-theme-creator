@@ -12,19 +12,12 @@ export default function Nvim() {
       <div className="container-tabs flex justify-between items-center">
         <NvTabs />
       </div>
-      <section className={`w-full h-full grid grid-cols-6`}>
+      <section className={`w-full h-[96%] grid grid-cols-6`}>
         <div
-          className={`container-editor col-span-5 w-full min-h-full`}
+          className={`container-editor col-span-5 w-full min-h-full overflow-auto`}
           style={{ background: state.background }}
         >
-          <NvEditor
-            foregroundComments={`${state.foregroundComments}`}
-            foregroundKeywords={`${state.foregroundKeywords}`}
-            foregroundFunctions={`${state.foregroundFunctions}`}
-            foregroundVariables={`${state.foregroundVariables}`}
-            foregroundOperators={`${state.foregroundOperators}`}
-            foregroundString={`${state.foregroundString}`}
-          />
+          <NvEditor />
         </div>
         <NvTree />
       </section>
