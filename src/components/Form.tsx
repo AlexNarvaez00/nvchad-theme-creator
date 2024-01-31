@@ -6,6 +6,8 @@ import { useBase16 } from "@/hooks/useBase16";
 import { useBase30 } from "@/hooks/useBase30";
 
 export default function Form() {
+  const { base00, setColor: setColor16 } = useBase16();
+
   const {
     setColor,
     black2,
@@ -15,7 +17,8 @@ export default function Form() {
     green,
     line,
     folder_bg,
-    darker_black,
+    darker_black,grey_fg,
+    yellow,
   } = useBase30();
 
   const { state, setState } = useColors();
@@ -30,6 +33,12 @@ export default function Form() {
     const name = event.currentTarget.name;
     const value = event.currentTarget.value;
     setColor(name, value);
+  };
+
+  const handleChangeBase16 = (event: React.FormEvent<HTMLInputElement>) => {
+    const name = event.currentTarget.name;
+    const value = event.currentTarget.value;
+    setColor16(name, value);
   };
 
   return (
@@ -110,9 +119,9 @@ export default function Form() {
         />
         <InputForm
           label="Name folder"
-          name="backgroundFolderIcon"
-          value={state.backgroundFolderIcon}
-          onChange={handleChange}
+          name="yellow"
+          value={yellow}
+          onChange={handleChangeBase30}
         />
       </section>
       <section className="mt-4 grid gap-4">
@@ -120,16 +129,16 @@ export default function Form() {
         <Separator className="my-4" />
         <InputForm
           label="Backgound Editor"
-          name="background"
-          value={state.background}
-          onChange={handleChange}
+          name="base00"
+          value={base00}
+          onChange={handleChangeBase16}
         />
 
         <InputForm
           label="Comments"
-          name="foregroundComments"
-          value={state.foregroundComments}
-          onChange={handleChange}
+          name="grey_fg"
+          value={grey_fg}
+          onChange={handleChangeBase30}
         />
         <InputForm
           label="Operators"

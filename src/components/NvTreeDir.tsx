@@ -7,6 +7,7 @@ interface Props extends HTMLProps<HTMLDetailsElement>{
   className?: string;
   active?: boolean
 }
+
 export default function NvTreeDir({
   children,
   title,

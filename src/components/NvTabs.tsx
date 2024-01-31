@@ -6,13 +6,13 @@ import { IconToggleRight, IconX } from "@tabler/icons-react";
 interface Props {}
 
 export default function NvTabs({}: Props) {
-  const { black2, red, one_bg3, white } = useBase30();
+  const { black2, red, one_bg3, white, black } = useBase30();
   const { base00 } = useBase16();
 
   return (
     <>
       <ul className={`flex w-full`} style={{ background: black2 }}>
-        <NvTabItem active={true} style={{ background: base00 }}>
+        <NvTabItem active={true} style={{ background: black }}>
           Index.tsx
         </NvTabItem>
         <NvTabItem style={{ background: black2 }}>Nav.astro</NvTabItem>

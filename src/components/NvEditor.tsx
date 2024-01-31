@@ -1,11 +1,12 @@
-import { useBase30 } from "@/hooks/useBase30";
-import { useBase16 } from "@/hooks/useBase16";
+import { Submenu } from "./Submenu";
 import { Line } from "./Line";
+import { useBase16 } from "@/hooks/useBase16";
+import { useBase30 } from "@/hooks/useBase30";
 
 interface Props {}
 
 export default function NvEditor({}: Props) {
-  const { grey, grey_fg, purple } = useBase30();
+  const { grey, grey_fg, purple, one_bg2 } = useBase30();
   const {
     base02,
     base05,
@@ -74,6 +75,25 @@ export default function NvEditor({}: Props) {
           <code style={keyword}>{`function`}</code>{" "}
           <code style={{ color: base0D }}>{`Post`}</code>
           <code style={{ color: base0F }}>{`(){}`}</code>
+        </Line>
+        <Line number={line++} color={grey}>
+          <code style={comment}>{``}</code>
+        </Line>
+        <Line number={line++} color={grey}>
+          <code style={comment}>{`/* Active block */`}</code>
+        </Line>
+        <Line number={line++} color={grey}>
+          <code style={comment}>{``}</code>
+        </Line>
+        <Line number={line++} color={grey}>
+          <code style={{ background: one_bg2 }}>
+            <code style={keyword}>{`function `}</code>
+            <code style={{ color: base0D }}>{`Post`}</code>
+            <code style={{ color: base0F }}>{`(){`}</code>
+          </code>
+        </Line>
+        <Line number={line++} color={grey}>
+          <code style={{ color: base0F }}>{`}`}</code>
         </Line>
         <Line number={line++} color={grey}>
           <code style={comment}>{``}</code>
@@ -152,12 +172,14 @@ export default function NvEditor({}: Props) {
         </Line>
         <Line number={line++} color={grey}>
           <code style={comment}>{``}</code>
-        </Line><Line number={line++} color={grey}>
+        </Line>
+        <Line number={line++} color={grey}>
           <code style={comment}>{`/* Error */`}</code>
         </Line>
         <Line number={line++} color={grey}>
           scsdcsc <code style={{ color: purple }}>{`Error syntax`}</code>
         </Line>
+        <Submenu />
       </ul>
     </pre>
   );

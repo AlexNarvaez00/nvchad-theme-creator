@@ -1,12 +1,17 @@
 import NvTreeDir from "./NvTreeDir";
 import NvTreeItem from "./NvTreeItem";
-import { IconBrandReact, IconFileTypeJs,IconFileTypeTs } from "@tabler/icons-react";
+import {
+  IconBrandReact,
+  IconFileTypeJs,
+  IconFileTypeTs,
+  IconFileTypeHtml
+} from "@tabler/icons-react";
 import { useBase30 } from "@/hooks/useBase30";
 
 interface Props {}
 
 export default function NvTree({}: Props) {
-  const { darker_black, black2, line, yellow,teal } = useBase30();
+  const { darker_black, baby_pink ,black2, line, yellow, teal, blue } = useBase30();
 
   return (
     <div
@@ -16,7 +21,8 @@ export default function NvTree({}: Props) {
       <span
         className="absolute w-[2px] h-full top-0 left-[-6px]"
         style={{ background: line }}
-      ></span>
+      >
+      </span>
       <NvTreeDir title="src" open>
         <NvTreeDir
           title="components"
@@ -25,17 +31,32 @@ export default function NvTree({}: Props) {
           style={{ background: black2 }}
         >
           <NvTreeItem>
-            <IconBrandReact size={"16px"} className="inline-block" /> Card.tsx
+            <IconBrandReact
+              size={"16px"}
+              style={{ color: blue }}
+              className="inline-block"
+            />{" "}
+            Card.tsx
           </NvTreeItem>
         </NvTreeDir>
         <NvTreeDir title="hooks"></NvTreeDir>
         <NvTreeDir title="store"></NvTreeDir>
         <NvTreeDir title="pages"></NvTreeDir>
-        <NvTreeItem>
-          <IconBrandReact size={"16px"} className="inline-block" /> App.tsx
+        <NvTreeItem newFile={yellow}>
+          <IconBrandReact
+            size={"16px"}
+            style={{ color: blue }}
+            className="inline-block"
+          />{" "}
+          App.tsx
         </NvTreeItem>
         <NvTreeItem>
-          <IconBrandReact size={"16px"} className="inline-block" /> index.tsx
+          <IconBrandReact
+            size={"16px"}
+            style={{ color: blue }}
+            className="inline-block"
+          />{" "}
+          index.tsx
         </NvTreeItem>
         <NvTreeItem>
           <IconFileTypeJs
@@ -49,9 +70,17 @@ export default function NvTree({}: Props) {
           <IconFileTypeTs
             size={"16px"}
             className="inline-block"
-            style={{ color: teal}}
+            style={{ color: teal }}
           />{" "}
           index.ts
+        </NvTreeItem>
+        <NvTreeItem>
+          <IconFileTypeHtml
+            size={"16px"}
+            className="inline-block"
+            style={{ color: baby_pink }}
+          />{" "}
+          index.html
         </NvTreeItem>
       </NvTreeDir>
     </div>
