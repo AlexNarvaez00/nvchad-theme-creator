@@ -6,7 +6,7 @@ import { useBase30 } from "@/hooks/useBase30";
 interface Props {}
 
 export default function NvEditor({}: Props) {
-  const { grey, grey_fg, purple, one_bg2 } = useBase30();
+  const { grey, grey_fg, purple, one_bg2, white } = useBase30();
   const {
     base02,
     base05,
@@ -92,7 +92,7 @@ export default function NvEditor({}: Props) {
             <code style={{ color: base0F }}>{`(){`}</code>
           </code>
         </Line>
-        <Line number={line++} color={grey}>
+        <Line number={line++} color={white}>
           <code style={{ color: base0F }}>{`}`}</code>
         </Line>
         <Line number={line++} color={grey}>
