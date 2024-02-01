@@ -7,7 +7,7 @@ export default function Page() {
   return (
     <ColorsNvimProvider>
       <section className={`w-full min-h-screen flex gap-2`}>
-        <div className="py-8 px-4 h-screen overflow-auto">
+        <div className="py-8 px-2 h-screen overflow-auto">
           <Form />
         </div>
         <Nvim />
