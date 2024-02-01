@@ -1,19 +1,22 @@
-import "./page.css";
-import Form from "@/components/Form";
-import Nvim from "@/components/Nvim";
-import { ColorsNvimProvider } from "@/contexts/color-nvim-provider";
-import { Toaster } from "sonner";
+import { Link } from "react-router-dom";
+import { IconAlertTriangleFilled } from "@tabler/icons-react";
+
 
 export default function Page() {
   return (
-    <ColorsNvimProvider>
-      <section className={`w-full min-h-screen flex gap-2`}>
-        <div className="py-8 px-2 h-screen overflow-auto">
-          <Form />
+    <section className="bg-[url(bg.jpg)] w-full min-h-screen bg-cover flex flex-col items-center pt-24">
+      <h1 className="text-4xl max-w-[600px] text-center mb-12 font-bold text-[#cdd6f4]">
+        Generador de temas para <span className="text-[#468bf7]">NvChad</span> del Editor Neovim.
+      </h1>
+      <div className="max-w-[550px] flex flex-col gap-6">
+        <div className="bg-[#313244] p-5 rounded-xl">
+          <p>
+            <IconAlertTriangleFilled size={"16px"} className="text-[#f9e2af] inline-block mr-2" />Hay algunas cosas que aun no estan pulidas, asi que ten cuidado, el
+            tema podria no funcionar al 100%
+          </p>
         </div>
-        <Nvim />
-      </section>
-      <Toaster theme="dark" />
-    </ColorsNvimProvider>
+        <Link to={`/create`} className="py-3 px-4 font-bold mx-auto rounded-xl text-center text-white bg-[#11111b] border-2 border-white" >Ir a la applicación 🚀</Link>
+      </div>
+    </section>
   );
 }
