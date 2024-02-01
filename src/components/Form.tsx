@@ -9,6 +9,11 @@ import {
   AccordionItem,
   AccordionTrigger,
 } from "@/components/ui/accordion";
+import { FormEvent } from "react";
+import { ButtonGenerate } from "./ButtonGenerate";
+import { useColorStore } from "@/store/ColorStore";
+import { Label } from "./ui/label";
+import { Input } from "./ui/input";
 
 export default function Form() {
   const {
@@ -53,6 +58,8 @@ export default function Form() {
     yellow,
   } = useBase30();
 
+  const { setName,name } = useColorStore(({ setName, name }) => ({ setName: setName, name }));
+
   const handleChangeBase30 = (event: React.FormEvent<HTMLInputElement>) => {
     const name = event.currentTarget.name;
     const value = event.currentTarget.value;
@@ -65,8 +72,19 @@ export default function Form() {
     setColor16(name, value);
   };
 
+  const handleChange = (event: React.FormEvent<HTMLInputElement>) => {
+    setName(event.currentTarget.value);
+  };
+
   return (
-    <form className={`grid gap-4`}>
+    <form
+      className={`grid gap-4`}
+      onSubmit={(event: FormEvent<HTMLFormElement>) => event.preventDefault()}
+    >
+      <div>
+        <Label>Nombre</Label>
+        <Input name="name" onChange={handleChange} value={name} type="text" />
+      </div>
 
       <Accordion type="single" collapsible className="w-full">
         <AccordionItem value="item-1">
@@ -76,7 +94,6 @@ export default function Form() {
             </Title>
           </AccordionTrigger>{" "}
           <AccordionContent className="px-3">
-            
             <InputForm
               label="Backgound NvTree"
               name="darker_black"
@@ -110,7 +127,6 @@ export default function Form() {
             </Title>
           </AccordionTrigger>{" "}
           <AccordionContent className="px-3">
-            
             <InputForm
               label="Background Buffers"
               name="black2"
@@ -139,7 +155,6 @@ export default function Form() {
             </Title>
           </AccordionTrigger>{" "}
           <AccordionContent className="px-3">
-            
             <InputForm
               label="Background"
               name="statusline_bg"
@@ -186,7 +201,6 @@ export default function Form() {
             </Title>
           </AccordionTrigger>{" "}
           <AccordionContent className="px-3">
-            
             <InputForm
               label="Backgound Editor"
               name="base00"
@@ -286,7 +300,6 @@ export default function Form() {
             </Title>
           </AccordionTrigger>{" "}
           <AccordionContent className="px-3">
-            
             <InputForm
               label="Foreground"
               name="blue"
@@ -347,6 +360,8 @@ export default function Form() {
           </AccordionContent>
         </AccordionItem>
       </Accordion>
+
+      <ButtonGenerate />
     </form>
   );
 }

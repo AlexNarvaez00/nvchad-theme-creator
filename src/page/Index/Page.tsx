@@ -2,6 +2,7 @@ import "./page.css";
 import Form from "@/components/Form";
 import Nvim from "@/components/Nvim";
 import { ColorsNvimProvider } from "@/contexts/color-nvim-provider";
+import { Toaster } from "sonner";
 
 export default function Page() {
   return (
@@ -12,6 +13,7 @@ export default function Page() {
         </div>
         <Nvim />
       </section>
+      <Toaster theme="dark" />
     </ColorsNvimProvider>
   );
 }

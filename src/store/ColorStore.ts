@@ -52,14 +52,14 @@ export const useColorStore = create<Colors>((set) => ({
     base0E: `#cba6f7`,
     base0F: `#eba0ac`,
   },
+  name: ``,
+  setName: (name) => set(() => ({ name })),
   setColorBase30: (key, value) =>
-    set(({ base30, ...state }) => ({
-      ...state,
+    set(({ base30 }) => ({
       base30: { ...base30, [key]: value },
     })),
   setColorBase16: (key, value) =>
-    set(({ base16, ...state }) => ({
-      ...state,
+    set(({ base16 }) => ({
       base16: { ...base16, [key]: value },
     })),
 }));
