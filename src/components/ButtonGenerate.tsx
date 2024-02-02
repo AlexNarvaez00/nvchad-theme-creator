@@ -12,7 +12,8 @@ export const ButtonGenerate = () => {
       name,
     }),
   );
-
+  
+  //@ts-ignore
   const handleClick = (event: MouseEvent<HTMLButtonElement>) => {
     const base16S = (JSON.stringify(base16) + "")
       .replaceAll(`"`, ``)
